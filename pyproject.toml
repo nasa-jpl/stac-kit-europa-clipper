@@ -1,6 +1,6 @@
 [project]
-name = "europa-cliper-ccsds-plugin"
-version = "1.0.0"
+name = "europa-clipper-ccsds-plugin"
+version = "0.1.0"
 description = "CCSDS packet definitions for Europa Clipper instruments"
 authors = [
     {name = "Joshua Garde",email = "jgarde@jpl.nasa.gov"}
