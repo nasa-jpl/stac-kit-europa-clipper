@@ -29,9 +29,9 @@ You might need to upgrade pip first:
 
     pip install --upgrade pip
 
-Install the package in editable mode:
+Install the package in editable mode, with the developer dependencies:
 
-    pip install -e .
+    pip install -e '.[dev]'
 
 Make your changes in the package definition files located in the `ccsds.packets.europa_clipper` directory.
 
