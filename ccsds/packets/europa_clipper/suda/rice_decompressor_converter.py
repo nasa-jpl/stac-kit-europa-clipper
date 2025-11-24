@@ -56,7 +56,8 @@ class RICEDecompressor(Converter):
         """Get the size of waveform elements, either low or high resolution.
 
         :param sciotype: SCIOTYPE property in the current packet
-        :return: the size (resolution) of the elements stored the data field of the packet as described in `SUDA FSW Science Packets White Paper`, section 1
+        :return: the size (resolution) of the elements stored the data field of the packet as described
+         in `SUDA FSW Science Packets White Paper`, section 1
         """
         return cls.data_resolution_bits[sciotype]
 

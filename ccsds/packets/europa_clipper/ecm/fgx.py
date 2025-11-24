@@ -16,7 +16,7 @@ class BytesTo24BitInts(Converter):
         for fgx_channels in field_array:
             fgx_channels_24bits = []
             for i in range(0, len(fgx_channels), 3):
-                meas_3bytes = bytes(fgx_channels[i : i + 3])
+                meas_3bytes = bytes(fgx_channels[i: i + 3])
                 meas_int = int.from_bytes(meas_3bytes, "big", signed=True)
                 fgx_channels_24bits.append(meas_int)
             fgx_channels_24bits_list.append(fgx_channels_24bits)

@@ -18,7 +18,7 @@ TO BE DONE (deploy from pypi, link to SPaC-kit for usage...)
 
 Clone the repository:
 
-    git clone  https://github.com/joshgarde/europa-cliper-ccsds-plugin.git 
+    git clone  https://github.com/joshgarde/europa-cliper-ccsds-plugin.git
 
 Create a virtual environment and activate it:
 
@@ -32,6 +32,7 @@ You might need to upgrade pip first:
 Install the package in editable mode, with the developer dependencies:
 
     pip install -e '.[dev]'
+    pre-commit install && pre-commit install -t pre-push
 
 Make your changes in the package definition files located in the `ccsds.packets.europa_clipper` directory.
 
@@ -40,4 +41,3 @@ Create/Update the test reference data as needed, next to the updated packet defi
 Run the tests to ensure everything is working:
 
     pytest
-
