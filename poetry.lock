@@ -2040,4 +2040,4 @@ dev = ["bitstring", "flake8", "poetry", "pylint", "pytest", "spac-kit"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0"
-content-hash = "d3dcc8dad0a7a8f4a69572f54577d964eb41bca6074a48533dd535c17da604d7"
+content-hash = "73a18e9cc3d0f985f36834330cf6802b9093d80f909342838e7263afab95ebec"
