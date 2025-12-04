@@ -5,7 +5,7 @@ import unittest
 from spac_kit.parser import compare
 
 
-class TestECMCase: # pylint: disable=too-few-public-methods
+class TestECMCase:  # pylint: disable=too-few-public-methods
     """Unit test class for ECM packets."""
     def test_parse(self):
         """Test ECM packet parsing, reference comparison."""
