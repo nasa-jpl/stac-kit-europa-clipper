@@ -38,6 +38,16 @@ If you want to use the latest dev version of spac-kit, install it from the sourc
 Install the package in editable mode, with the developer dependencies:
 
     pip install -e '.[dev]'
+
+Or use poetry:
+
+    pip install poetry
+    poetry lock
+    poetry install --with dev
+
+
+IMPORTANT: Install the pre-commit hooks, they will ensure code quality. If you don't do it the automated test running on the Pull Request will fail.
+
     pre-commit install && pre-commit install -t pre-push
 
 Make your changes in the package definition files located in the `ccsds.packets.europa_clipper` directory.
