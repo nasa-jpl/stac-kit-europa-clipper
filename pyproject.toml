@@ -52,6 +52,3 @@ disable = [
     "C0116",  # missing-function-docstring
     "R0903",  # too-few-public-methods
 ]
-
-[tool.poetry.repositories]
-testpypi = {  url = "https://test.pypi.org/legacy/" }
