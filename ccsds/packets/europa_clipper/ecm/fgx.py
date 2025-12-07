@@ -7,7 +7,7 @@ class BytesTo24BitInts(Converter):  # pylint: disable=too-few-public-methods
     """Convert from array of bytes to arrays of 24bits (3 bytes) integer."""
 
     def __init__(self):
-        """Does nothing. But is needed as the abstract super constructor has to be implemented."""
+        """Do nothing. But is needed as the abstract super constructor has to be implemented."""
         pass  # pylint: disable=unnecessary-pass
 
     def convert(self, field_array):
@@ -27,7 +27,7 @@ class FGXPacketStructure(ccsdspy.VariableLength):
     """Flux Gate Packet Structure."""
 
     def __init__(self, sensor, frequency, apid):
-        """Constructor.
+        """Construct the class.
 
         @param sensor: sensor is 1, 2 or 3
         @param frequency: is "low" or "high", low is for both high and max rates

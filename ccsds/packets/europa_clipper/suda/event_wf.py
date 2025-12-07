@@ -46,7 +46,7 @@ class SudaEventWFPacketStructure(ccsdspy.VariableLength):
     ]
 
     def __init__(self, subpacket_type: wf_subpacket_types = None):
-        """Constructor."""
+        """Construct the class."""
         if subpacket_type == wf_subpacket_types.METADATA:
             middle_fields = METADATA_FIELDS
         else:

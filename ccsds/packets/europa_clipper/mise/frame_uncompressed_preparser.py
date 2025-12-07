@@ -20,7 +20,10 @@ N = 0
 
 
 def sequence():
-    """Simple counter to identify packets APID 1392."""
+    """Count packet sequences to identify packets sub-types of APID 1392.
+
+    90 first packets are regular, 91st and 92nd are specifics.
+    """
     global N  # pylint: disable=W0603
     N += 1
     if N <= 90:

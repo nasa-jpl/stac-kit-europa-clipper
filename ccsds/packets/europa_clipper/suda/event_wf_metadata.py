@@ -26,7 +26,7 @@ def _metadata_timestamp():
     ]
 
 
-def EVENTNUMBER_structure():  # pylint: disable=invalid-name
+def EVENTNUMBER_structure():  # pylint: disable=invalid-name  # noqa: N802
     """Event number fields."""
     return [
         ccsdspy.PacketField(
@@ -43,7 +43,7 @@ def EVENTNUMBER_structure():  # pylint: disable=invalid-name
     ]
 
 
-def NBLOCKS_structure():  # pylint: disable=invalid-name
+def NBLOCKS_structure():  # pylint: disable=invalid-name  # noqa: N802
     """NBLOCKS fields."""
     return [
         ccsdspy.PacketField(name="NBLOCKS_HS_ERROR", bit_length=1, data_type="uint"),
@@ -61,7 +61,7 @@ def NBLOCKS_structure():  # pylint: disable=invalid-name
     ]
 
 
-def LSADC_Structure():  # pylint: disable=invalid-name
+def LSADC_Structure():  # pylint: disable=invalid-name  # noqa: N802
     """LSADC fields."""
     return [
         ccsdspy.PacketField(name="LSADC_TRIGGER_NMIN", bit_length=8, data_type="uint"),
@@ -103,7 +103,7 @@ def _metadata_trigger_levels(sensor: Sensors) -> list[ccsdspy.PacketField]:
     ]
 
 
-def TRIGGERMODE_Structure():  # pylint: disable=invalid-name
+def TRIGGERMODE_Structure():  # pylint: disable=invalid-name  # noqa: N802
     """Trigger Mode fields."""
     return [
         ccsdspy.PacketField(name="TRIGGERMODE_ADC0I", bit_length=2, data_type="uint"),

@@ -23,7 +23,7 @@ class MISEDecompressionConverter(Converter):
         differences_stored=False,
         width_encoding_bits=4,
     ):  # pylint: disable=too-many-arguments,too-many-positional-arguments
-        """Initialization of the decompressor with parameters depending on the configuration of the compression.
+        """Initialize the decompressor with parameters depending on the configuration of the compression.
 
         @param uncompressed_item_mask:
         @param data_length_without_frame_bytes:

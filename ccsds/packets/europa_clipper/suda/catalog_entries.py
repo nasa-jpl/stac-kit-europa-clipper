@@ -12,7 +12,7 @@ class SudaCatalogEntries(ccsdspy.VariableLength):
     """Catalog packet structure definition."""
 
     def __init__(self):
-        """Initialization."""
+        """Initialize the packet structure."""
         fields = [
             # SUDA Science Packet White Paper, 3.2, first table
             # per word (32bits), the order of the fields are reversed because of the FPGA specification
@@ -60,7 +60,7 @@ class InEntriesDecoder(ccsdspy.converters.Converter):  # pylink: disable=too-few
     """Converter used to parse the entries in a single packet."""
 
     def __init__(self):
-        """Constructor. Abstract super contracutor has to be implemented although nothing needs to be done."""
+        """Construct the class. Abstract super constructor has to be present although nothing needs to be done."""
         pass  # pylint: disable=unnecessary-pass
 
     @staticmethod
@@ -124,7 +124,7 @@ class InEntriesDecoder(ccsdspy.converters.Converter):  # pylink: disable=too-few
         return decoded_entry
 
     def convert(self, noise_categories, entry_list):  # pylint: disable=arguments-differ
-        """Parses the entries.
+        """Parse the entries.
 
         @param noise_categories: values of the noise categories for all packets
         @param entry_list: entries bytes for all packets.

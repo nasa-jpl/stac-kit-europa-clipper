@@ -43,7 +43,7 @@ class RICEDecompressor(Converter):  # pylint: disable=too-many-instance-attribut
     }
 
     def __init__(self):
-        """Initialization."""
+        """Initialize the class."""
         self.latest_hs_pre = None
         self.latest_hs_post = None
         self.latest_ls_pre = None
@@ -161,7 +161,6 @@ class RICEDecompressor(Converter):  # pylint: disable=too-many-instance-attribut
         @param scio_type: SCIOTYPE of the current packet
         @return: the number of sample expected
         """
-
         sample_count = None
 
         if scio_type == SCIOType.TOF_HG:

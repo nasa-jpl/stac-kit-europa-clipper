@@ -9,7 +9,7 @@ class SudaCatalogListStructure(ccsdspy.VariableLength):
     apid = 1419
 
     def __init__(self):
-        """Constructor."""
+        """Construct the class."""
         super().__init__(
             [
                 ccsdspy.PacketField(name="SHCOARSE", bit_length=32, data_type="int"),
