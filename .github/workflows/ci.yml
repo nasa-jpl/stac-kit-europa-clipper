@@ -46,7 +46,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: python:3.12-slim
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
       - name: Install build tools
