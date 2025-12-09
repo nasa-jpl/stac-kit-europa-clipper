@@ -6,7 +6,7 @@ Those packet definitions are used by the [SPaC-kit CCSDS library](https://github
 
 ## Prerequisites
 
-This package has been tested with Python 3.9.
+This package has been tested with Python 3.12.
 
 ## Users
 
