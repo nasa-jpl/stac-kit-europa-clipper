@@ -13,7 +13,24 @@ This package has been tested with Python 3.12.
 ## Users
 
 
-TO BE DONE (deploy from pypi, link to SPaC-kit for usage...)
+Install the main package:
+
+    pip install spac-kit
+
+
+Install the plugin from pypi (NOT PUSLISHED ON PYPI YET:
+
+    pip install spac-kit-europa-clipper
+
+
+You can now parse a downlink file from Europa-Clipper:
+
+   parse-downlink --file {your europa-clipper file}
+
+Test files are provided here:
+
+ECM instrument: https://github.com/nasa-jpl/spac-kit-europa-clipper/tree/main/ccsds/packets/europa_clipper/ecm/test/in.bin
+SUDA instrument: https://github.com/nasa-jpl/spac-kit-europa-clipper/blob/main/ccsds/packets/europa_clipper/suda/test/in.bin
 
 
 ## Developers
