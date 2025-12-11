@@ -54,9 +54,9 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
-      - name: Build and publish to PyPI
-        env:
-          POETRY_PYPI_TOKEN_TESTPYPI: ${{ secrets.PYPI_TOKEN }}
-        run: |
-          poetry config repositories.testpypi https://test.pypi.org/legacy/
-          poetry publish --build --no-interaction --repository testpypi
+      - name: Publish PyPi package
+        uses: code-specialist/pypi-poetry-publish@v1
+        with:
+          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_REGISTRY_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+          PUBLISH_REGISTRY: "https://test.pypi.org/legacy/"
