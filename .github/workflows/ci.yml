@@ -6,6 +6,9 @@ on:
       run_publish:
         type: boolean
         default: false
+      environment:
+        type: string
+        default: main
 
 permissions:
   contents: write
@@ -47,14 +50,18 @@ jobs:
     if: ${{ inputs.run_publish }}
     needs: [lint, test]
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    environment: ${{ inputs.environment }}
+    container:
+      image: python:3.12-slim
     steps:
-      - name: checkout code
-        uses: actions/checkout@v3
-      - name: Build and publish to pypi
-        uses: JRubics/poetry-publish@v2.1
-        with:
-          pypi-token.testpypi: ${{ secrets.PYPI_TOKEN }}
-          repository_name: "testpypi"
-          repository_url: "https://test.pypi.org/legacy/"
+      - uses: actions/checkout@v4
+      - name: Install Poetry
+        run: pip install poetry
+      - name: Install dependencies
+        run: poetry install
+      - name: Build and publish to PyPI
+        env:
+          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          poetry config repositories.pypi ${{ vars.PYPI_REPOSITORY_URL }}
+          poetry publish --build --no-interaction --repository pypi

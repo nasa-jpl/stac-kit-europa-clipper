@@ -4,6 +4,10 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+    inputs:
+      environment:
+        type: environment
+        default: main
 
 permissions:
   contents: write
@@ -13,3 +17,4 @@ jobs:
     uses: ./.github/workflows/ci.yml
     with:
       run_publish: true
+      environment: ${{ github.event.inputs.environment }}
