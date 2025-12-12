@@ -4,7 +4,7 @@ import pkgutil
 
 # needs to be loaded first
 __all__ = ["ccsds.packets.europa_clipper.common"]
-import ccsds.packets.europa_clipper.common  # noqa
+import ccsds.packets.europa_clipper.common  # pylint: disable=undefined-all-variable # noqa
 
 
 def __getattr__(name):
