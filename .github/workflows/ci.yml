@@ -1,14 +1,17 @@
 name: CI Pipeline
 
 on:
-  workflow_call:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
     inputs:
-      run_publish:
-        type: boolean
-        default: false
-
-permissions:
-  contents: write
+      environment:
+        description: 'Deployment environment (main or test)'
+        required: false
+        type: environment
+        default: main
 
 jobs:
   lint:
@@ -44,17 +47,29 @@ jobs:
         run: poetry run pytest
 
   publish:
-    if: ${{ inputs.run_publish }}
+    if: |
+      ${{
+        github.ref == 'refs/heads/main' ||
+        startsWith(github.ref_name, 'release/')
+      }}
+    environment: |
+      ${{
+        github.event.inputs.environment ||
+        (github.ref == 'refs/heads/main' && 'main') ||
+        (startsWith(github.ref_name, 'release/') && 'test')
+      }}
     needs: [lint, test]
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    container:
+      image: python:3.12-slim
     steps:
-      - name: checkout code
-        uses: actions/checkout@v3
-      - name: Build and publish to pypi
-        uses: JRubics/poetry-publish@v2.1
-        with:
-          pypi-token.testpypi: ${{ secrets.PYPI_TOKEN }}
-          repository_name: "testpypi"
-          repository_url: "https://test.pypi.org/legacy/"
+      - uses: actions/checkout@v4
+      - name: Install Poetry
+        run: pip install poetry
+      - name: Install dependencies
+        run: poetry install
+      - name: Build and publish to PyPI
+        run: |
+          poetry config repositories.${{ vars.PYPI_REPOSITORY }} ${{ vars.PYPI_REPOSITORY_URL }}
+          poetry config pypi-token.${{ vars.PYPI_REPOSITORY }} ${{ secrets.PYPI_TOKEN }}
+          poetry publish --build --no-interaction --repository ${{ vars.PYPI_REPOSITORY }}
